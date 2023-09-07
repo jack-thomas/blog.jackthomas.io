@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  {%- assign content = page.content | strip_newlines -%}
+  {%- if content != "" -%}
+    <h2 class="page-heading">Subcategories</h2>
+    {{page.content}}
+  {%- endif -%}
+
+  {%- assign posts = site.posts | sort: 'title' -%}
+  <!--- Build empty array (to later fill with posts that match the category that we're on). --->
+  {%- assign valid_posts = site.emptyArray -%}
+  {%- for post in posts -%}
+    {%- assign is_valid_post = false -%}
+    {%- for post_category in post.categories -%}
+      <!--- 
+        Build empty array to house limited category. For example, if we're on the "vegetarian >
+        vegan" category page, then something tagged as "desserts > cakes > cheesecakes" would only
+        be allowed to have "desserts > cakes" in the relevant post_category_limited array.
+      --->
+      {%- assign post_category_limited = site.emptyArray -%}
+      {%- if post_category.category -%}
+        {%- for post_category_entry in post_category.category limit:page.category.size -%}
+          {%- assign post_category_limited = post_category_limited | push: post_category_entry -%}
+        {%- endfor -%}
+        <!--- Check if the limited post category and the category page that we're on match. --->
+        {%- if post_category_limited == page.category -%}
+          <!--- If so, mark this post as valid (to add it to the list later) --->
+          {%- assign is_valid_post = true -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if is_valid_post -%}
+      <!---
+        Add to list of valid posts. Note: You previously had this written so that it would directly
+        add it when the condition was met above. That, however, was leading to duplicates. For
+        example, Danish Puff is in two subcategories of holiday, which led it to be represented
+        twice in the holiday category itself.
+      --->
+      {%- assign valid_posts = valid_posts | push: post -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  <h2 class="page-heading">Posts</h2>
+  <ul class="post-list">
+    {%- for post in valid_posts -%}
+      <h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+    {%- endfor -%}
+  </ul>
+
+</article>

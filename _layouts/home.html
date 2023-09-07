@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<!--- This layout is based on the original minima home layout:
+        - https://github.com/jekyll/minima/blob/master/_layouts/home.html
+
+      I originally copied the home layout from the minima theme just to get rid of the RSS link, but I
+      ended up editing much more significantly than that. The RSS link is present in v2.5.1 (which was
+      released in 2019 and is the version that was automatically installed as a gem), but it was removed
+      from the repo in the following commit:
+      https://github.com/jekyll/minima/commit/f3de471bf38a14c5025319fdd541c30fe9f6916f
+
+      Here are some links around minima releases:
+        - https://github.com/jekyll/minima/releases
+        - https://github.com/jekyll/minima/releases/tag/v2.5.1
+--->
+
+<div class="home">
+  <ul class="post-list">
+    {%- assign date_format = site.minima.date_format | default: "%Y-%m-%d" -%}
+    {%- for post in site.posts -%}
+
+    {%- assign categories = site.emptyArray -%}
+    {%- for category in post.categories -%}
+      {%- for subcategory in category["category"][0] -%}
+        {%- assign categories = categories | push: subcategory -%}
+      {%- endfor -%}
+    {%- endfor -%}
+
+    <li>
+      <span class="post-meta">
+        {{ post.date | date: date_format }} ({{ categories | join: ", " }})
+      </span>
+      <h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>
