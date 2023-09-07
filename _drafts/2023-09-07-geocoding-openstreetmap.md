@@ -8,6 +8,12 @@ categories:
     - servicenow
 ---
 
+## Current Error
+
+You're currently getting a "connection refused" error. It's likely that the whole block of IP addresses that ServiceNow uses is blocked by OpenStreetMap Nominatim. Consider setting up a MID Server and routing the requests through it.
+
+## Introduction
+
 The default geocoding engine in ServiceNow is Google Maps, but I don't have a subscription for that. One alternative is the [OpenStreetMap Nominatim](https://wiki.openstreetmap.org/wiki/Nominatim). This article will provide brief implementation details.
 
 (As a reminder, latitude is x and longitude is y. I always forget which is which.)
