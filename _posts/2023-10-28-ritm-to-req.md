@@ -134,7 +134,6 @@ function onLoad() {
 }
 
 function getParmVal(name) {
-	// 
 	var url = decodeURIComponent(top.location.href); //Get the URL and decode it
 	var workspaceParams = url.split('extra-params/')[1]; //Split off the url on Extra params
 	var allParams = workspaceParams.split('/'); //The params are split on slashes '/'
