@@ -1,5 +1,5 @@
 ---
-title: 'Building a UI Action to Add RITMs to an Existing REQ'
+title: 'How to Build a UI Action to Add RITMs to an Existing REQ'
 author: Jack Thomas
 date: '2023-10-28'
 slug: ritm-to-req
