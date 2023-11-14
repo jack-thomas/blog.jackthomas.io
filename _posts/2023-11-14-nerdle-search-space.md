@@ -50,15 +50,33 @@ Second, further restrict $$G$$ such that the portion of the guess to the right o
 
 Further, let's break $$G$$ down into subsets, where $$G_m$$ is the subset where the "=" is in position $$m$$. Using this second rule, we can elimiate many possibilities.
 
-We already know that $$G_1 = \emptyset$$ and $$G_8 = \emptyset$$ by the previous rule that the guess can neither start nor end with an equals sign. Therefore, $$|G_1| = |G_8| = 0$$.
+- $$G_1 = \emptyset$$ by the previous rule that the guess cannot start with an equals sign, so $$
+|G_1| = 0
+$$.
+- Any element in $$G_2$$ must be of the form ``c=cbbbbb``. It is not possible for a one-digit number (``c``) to be equivalent to a six-digit number with no leading zeros (``cbbbbb``). Therefore, $$G_2 = \emptyset$$ and $$
+|G_2| = 0
+$$.
+- Any element in $$G_3$$ must be of the form ``cb=cbbbb``. It is not possible for a two-digit number (``cb``) to be equivalent to a five-digit number with no leading zeros (``cbbbb``) . Therefore, $$G_3 = \emptyset$$ and $$
+|G_3| = 0
+$$.
+- Any element in $$G_4$$ must be of the form ``cab=cbbb``. If ``a`` $$\in \{+, -, *, /\}$$, the highest possible number on the left side would be $$81 = 9 \cdot 9$$, which cannot be equivalent to a four-digit number with no leading zeros (``cbbbb``). Similarly, if ``a`` $$\in B$$, the highest possible number on the left side would be $$999$$, which also cannot be equivalent to a four-digit number with no leading zeros (``cbbbb``). Therefore, $$G_4 = \emptyset$$ and $$
+|G_4| = 0
+$$.
+- $$G_8 = \emptyset$$ by the previous rule that the guess cannot end with an equals sign, so $$
+|G_8| = 0
+$$.
 
-Next, $$G_2$$ must be of the form ``c=cbbbbb``. It is not possible for a one-digit number (``c``) to be equivalent to a six-digit number with no leading zeros (``cbbbbb``). Therefore, $$G_2 = \emptyset$$ and $$|G_2| = 0$$.
+That leaves three nonempty subsets: $$G_5$$, $$G_6$$, and $$G_7$$.
 
-Additionally, $$G_3$$ must be of the form ``cb=cbbbb``. It is not possible for a two-digit number (``cb``) to be equivalent to a five-digit number with no leading zeros (``cbbbb``) . Therefore, $$G_3 = \emptyset$$ and $$|G_3| = 0$$.
-
-Similarly, $$G_4$$ must be of the form ``cab=cbbb``. If ``a`` $$\in \{+, -, *, /\}$$, the highest possible number on the left side would be $$81 = 9 \cdot 9$$, which cannot be equivalent to a four-digit number with no leading zeros (``cbbbb``). Similarly, if ``a`` $$\in B$$, the highest possible number on the left side would be $$999$$, which also cannot be equivalent to a four-digit number with no leading zeros (``cbbbb``). Therefore, $$G_4 = \emptyset$$ and $$|G_4| = 0$$.
-
-That leaves three nonempty subsets: $$G_5$$, $$G_6$$, and $$G_7$$. Any element in $$G_5$$ must be of the form ``caab=cbb``, so $$|G_5| = |A|^2 \cdot |B|^3 \cdot |C|^2 = 14^2 \cdot 10^3 \cdot 9^2 = 15,876,000$$; any element in $$G_6$$ must be of the form ``caaab=cb``, so $$|G_5| = |A|^3 \cdot |B|^2 \cdot |C|^2 = 14^3 \cdot 10^2 \cdot 9^2 = 22,226,400$$; and any element of $$G_7$$ must be of the form ``caaaab=b``, so $$|G_5| = |A|^4 \cdot |B|^2 \cdot |C|^1 = 14^4 \cdot 10^2 \cdot 9^1 = 34,574,400$$.
+- Any element in $$G_5$$ must be of the form ``caab=cbb``, so $$
+|G_5| = |A|^2 \cdot |B|^3 \cdot |C|^2 = 14^2 \cdot 10^3 \cdot 9^2 = 15,876,000
+$$;
+- Any element in $$G_6$$ must be of the form ``caaab=cb``, so $$
+|G_5| = |A|^3 \cdot |B|^2 \cdot |C|^2 = 14^3 \cdot 10^2 \cdot 9^2 = 22,226,400
+$$; and
+- Any element of $$G_7$$ must be of the form ``caaaab=b``, so $$
+|G_5| = |A|^4 \cdot |B|^2 \cdot |C|^1 = 14^4 \cdot 10^2 \cdot 9^1 = 34,574,400
+$$.
 
 By effectively eliminating many possible positions of the "=" above, we have limited the size of our search space to
 
