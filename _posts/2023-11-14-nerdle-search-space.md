@@ -24,7 +24,7 @@ $$
 L = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, +, -, *, /, =\}.
 $$
 
-Further, let $$n$$ represent the length of our guess. In the classic interpretation of Nerdle, $n = 8$. In this case (an 8-letter selection without considering validity),
+Further, let $$n$$ represent the length of our guess. In the classic interpretation of Nerdle, $$n = 8$$. In this case (an 8-letter selection without considering validity),
 
 $$
 |G| = |L|^n = 15^8 \approx 2.6 \times 10^9.
@@ -48,25 +48,22 @@ Second, further restrict $$G$$ such that the portion of the guess to the right o
 - $$B = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$$ and ``b`` $$\in B$$
 - $$C = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}$$ and ``c`` $$\in C$$
 
-Further, let's break $$G$$ down into subsets, where $$G_m$$ is the subset where the "=" is in position $$m$$. Using this second rule, we can elimiate many possibilities:
+Further, let's break $$G$$ down into subsets, where $$G_m$$ is the subset where the "=" is in position $$m$$. Using this second rule, we can elimiate many possibilities.
 
-- $$G_1 = \emptyset$$ by a previous rule (i.e., the guess cannot start with an equals sign), so $$|G_1| = 0$$.
-- $$G_2$$ must be of the form ``c=cbbbbb``. It is not possible for a one-digit number (``c``) to be equivalent to a six-digit number with no leading zeros (``cbbbbb``). Therefore, $$G_2 = \emptyset$$ and $$|G_2| = 0$$.
-- $$G_3$$ must be of the form ``cb=cbbbb``. It is not possible for a two-digit number (``cb``) to be equivalent to a five-digit number with no leading zeros (``cbbbb``) . Therefore, $$G_3 = \emptyset$$ and $$|G_3| = 0$$.
-- $$G_4$$ must be of the form ``cab=cbbb``. If ``a`` $$\in \{+, -, *, /\}$$, the highest possible number on the left side would be $$81 = 9 \cdot 9$$, which cannot be equivalent to a four-digit number with no leading zeros (``cbbbb``). Similarly, if ``a`` $$\in B$$, the highest possible number on the left side would be $$999$$, which also cannot be equivalent to a four-digit number with no leading zeros (``cbbbb``). Therefore, $$G_4 = \emptyset$$ and $$|G_4| = 0$$.
-- $$G_8 = \emptyset$$ by a previous rule (i.e., the guess cannot end with an equals sign), so $$|G_8| = 0$$.
+We already know that $$G_1 = \emptyset$$ and $$G_8 = \emptyset$$ by the previous rule that the guess can neither start nor end with an equals sign. Therefore, $$|G_1| = |G_8| = 0$$.
 
-The remaining subsets are:
+Next, $$G_2$$ must be of the form ``c=cbbbbb``. It is not possible for a one-digit number (``c``) to be equivalent to a six-digit number with no leading zeros (``cbbbbb``). Therefore, $$G_2 = \emptyset$$ and $$|G_2| = 0$$.
 
-- $$G_5$$, which much be of the form ``caab=cbb``. Therefore, $$|G_5| = |A|^2 \cdot |B|^3 \cdot |C|^2 = 14^2 \cdot 10^3 \cdot 9^2 = 15,876,000$$;
-- $$G_6$$, which must be of the form ``caaab=cb``. Therefore, $$|G_5| = |A|^3 \cdot |B|^2 \cdot |C|^2 = 14^3 \cdot 10^2 \cdot 9^2 = 22,226,400$$; and
-- $$G_7$$, which must be of the form ``caaaab=b``. Therefore, $$|G_5| = |A|^4 \cdot |B|^2 \cdot |C|^1 = 14^4 \cdot 10^2 \cdot 9^1 = 34,574,400$$.
+Additionally, $$G_3$$ must be of the form ``cb=cbbbb``. It is not possible for a two-digit number (``cb``) to be equivalent to a five-digit number with no leading zeros (``cbbbb``) . Therefore, $$G_3 = \emptyset$$ and $$|G_3| = 0$$.
+
+Similarly, $$G_4$$ must be of the form ``cab=cbbb``. If ``a`` $$\in \{+, -, *, /\}$$, the highest possible number on the left side would be $$81 = 9 \cdot 9$$, which cannot be equivalent to a four-digit number with no leading zeros (``cbbbb``). Similarly, if ``a`` $$\in B$$, the highest possible number on the left side would be $$999$$, which also cannot be equivalent to a four-digit number with no leading zeros (``cbbbb``). Therefore, $$G_4 = \emptyset$$ and $$|G_4| = 0$$.
+
+That leaves three nonempty subsets: $$G_5$$, $$G_6$$, and $$G_7$$. Any element in $$G_5$$ must be of the form ``caab=cbb``, so $$|G_5| = |A|^2 \cdot |B|^3 \cdot |C|^2 = 14^2 \cdot 10^3 \cdot 9^2 = 15,876,000$$; any element in $$G_6$$ must be of the form ``caaab=cb``, so $$|G_5| = |A|^3 \cdot |B|^2 \cdot |C|^2 = 14^3 \cdot 10^2 \cdot 9^2 = 22,226,400$$; and any element of $$G_7$$ must be of the form ``caaaab=b``, so $$|G_5| = |A|^4 \cdot |B|^2 \cdot |C|^1 = 14^4 \cdot 10^2 \cdot 9^1 = 34,574,400$$.
 
 By effectively eliminating many possible positions of the "=" above, we have limited the size of our search space to
 
 $$
 |G| = |G_5| + |G_6| + |G_7| = 72,676,800 \approx 7.2 \times 10^7.
-
 $$
 
 That's two orders of magnitude smaller than what we started with.
@@ -93,37 +90,37 @@ Second, let's write a function to check guesses.
 
 ```python
 def check_guess(guess):
-	try:
-		for i in range(len(guess) - 1):
-			# allow neither sequences of operations (e.g., "+-" or "*+")
-            #           nor leading zeros
-			if guess[i] in operations and (guess[i + 1] in operations or guess[i + 1] == "0"):
-				return(False)
-		return(eval(guess.split("=")[0]) == eval(guess.split("=")[1]))
-	except SyntaxError:
-		# catch syntax errors, e.g., leading zeros
-		return(False)
-	except ZeroDivisionError:
-		# don't allow dividing by zero
-		return(False)
+  try:
+    for i in range(len(guess) - 1):
+      # allow neither sequences of operations (e.g., "+-" or "*+")
+      #           nor leading zeros
+      if guess[i] in operations and (guess[i + 1] in operations or guess[i + 1] == "0"):
+        return(False)
+    return(eval(guess.split("=")[0]) == eval(guess.split("=")[1]))
+  except SyntaxError:
+    # catch syntax errors, e.g., leading zeros
+    return(False)
+  except ZeroDivisionError:
+    # don't allow dividing by zero
+    return(False)
 ```
 
 Third, let's iterate the mathematically restricted search space to determine the true search space.
 
 ```python
 with open(file_path, "w+") as open_file:
-	for branch in branches:
-		for a in choices[branch[0]]:
-			for b in choices[branch[1]]:
-				for c in choices[branch[2]]:
-					for d in choices[branch[3]]:
-						for e in choices[branch[4]]:
-							for f in choices[branch[5]]:
-								for g in choices[branch[6]]:
-									for h in choices[branch[7]]:
-										guess = a + b + c + d + e + f + g + h
-										if check_guess(guess):
-											open_file.write("\n" + guess)
+  for branch in branches:
+    for a in choices[branch[0]]:
+      for b in choices[branch[1]]:
+        for c in choices[branch[2]]:
+          for d in choices[branch[3]]:
+            for e in choices[branch[4]]:
+              for f in choices[branch[5]]:
+                for g in choices[branch[6]]:
+                  for h in choices[branch[7]]:
+                    guess = a + b + c + d + e + f + g + h
+                    if check_guess(guess):
+                      open_file.write("\n" + guess)
 ```
 
 Is there a more efficient way to write this? Undoubtedly! I found [pedrokkrause/Nerdle-Equations](https://github.com/pedrokkrause/Nerdle-Equations/blob/main/NerdleGenerator.py) on GitHub, for example, which uses ``itertools.product`` to generate combinations, which is definitely more efficient(ly written) and scalable (e.g., beyond $n = 8$) than my for loop death trap. However, I can't find how he went from the "raw" set (i.e., any combination that Python will evaluate as True) to the "restricted" set (i.e., following the additional rules defined above). In the end, [his restricted set](https://github.com/pedrokkrause/Nerdle-Equations/blob/main/NerdleClassicRestricted.txt) is equivalent to mine. Regardless, this took less than ten minutes to run on my Dell XPS 9520 with an i7-12700H CPU and 16GB of RAM, which is good enough.
