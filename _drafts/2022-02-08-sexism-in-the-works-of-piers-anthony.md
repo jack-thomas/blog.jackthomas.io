@@ -16,7 +16,7 @@ Admittedly, this is based on only reading a few books in the *[Incarnations of I
 
 Yeah, I can see why there's been a bit of a reckoning with regard to Anthony's writing. It's certainly sexist. Even if the setup (killing Death to take his place) and crux (a battle against Satan, whereby Zane/Death wins by "believing in himself" - not a real quote, but certainly not inaccurate) are pretty interesting, it's not enough to cover up the blatant sexism.
 
-The main female character (Luna, the love interest of Zane/Death) is introduced as a pawn of her father, with the only focus being on her looks/beauty. (I'm pretty sure she's actually naked in the scene.) Even when she does perhaps develop some agency, she maintains her "daddy knows best" attitude, and Anthony continues to focus far more than is necessary on how she looks. The female characters are also only partially closed - or even completely naked - far more often than is necessary.
+The main female character (Luna, the love interest of Zane/Death) is introduced as a pawn of her father, with the only focus being on her looks/beauty. (I'm pretty sure she's actually naked in the scene.) Even when she does perhaps develop some agency, she maintains her "daddy knows best" attitude, and Anthony continues to focus far more than is necessary on how she looks. The female characters are also only partially clothed - or even completely naked - far more often than is necessary.
 
 Even the (female, obviously) ghost is sexualized. She died at 16, and even though she's apparently been dead for thousands of years, lusting after her is still very much not okay. Zane is still lusting after the body of a 16 year old and commenting on her tits. Just... No thanks.
 
@@ -28,7 +28,7 @@ So... Will I read the rest of the series? Probably. I'm still trying to get back
 
 There's also a weird focus on Luna's virginity. Zane seems to want her to be a virgin, and he's upset when the Devil implies that she's not. She's also supposedly raped by a demo from Hell, which is then walked back to "only" a psychic/mental rape. And that's somehow acceptable because her body is still pure? That's fucked up.
 
-Actually, I think it was consensual, since she was trying to learn about black magic to save her father or whatever, but it's still weird af. Anyway, I guess the problem is that I read (this type of story/genre anyway) to turn my brain off - not to think too much. Probably not ideal with so problematic a book.
+Actually, I think it was perhaps consensual, since she was trying to learn about black magic to save her father or whatever, but it's still weird af. Anyway, I guess the problem is that I read (this type of story/genre anyway) to turn my brain off - not to think too much. Probably not ideal with so problematic a book.
 
 ## Post-Research Thoughts
 
@@ -48,4 +48,4 @@ Next, I read Joshua Chaplisky's "[Themes of Pedophilia in the Works of Piers Ant
 
 <!--- TODO: Summarize thoughts. --->
 
-Finally, to ensure that I wasn't getting a one-sided representation, I read Piers Anthony's own words in a Q&A entitled "[Piers Anthony Unbound](https://news.slashdot.org/story/02/07/14/1854209/piers-anthony-unbound)" on *Slashdot*. His answer to question nine deals specifically with pedophilia, where he basically says it's fine and admits that he corresponds with a convicted pedophile who's in prison.
+Finally, to ensure that I wasn't getting a one-sided representation, I read Piers Anthony's own words in a Q&A entitled "[Piers Anthony Unbound](https://news.slashdot.org/story/02/07/14/1854209/piers-anthony-unbound)" on *Slashdot*. His answer to question nine deals specifically with pedophilia, where he basically says it's fine and admits that he corresponds with a convicted pedophile who's in prison. Lovely...
